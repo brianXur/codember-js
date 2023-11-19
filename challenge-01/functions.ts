@@ -3,15 +3,17 @@ const stringToResolve =
 
 const splitString = stringToResolve.split(" ");
 
-const dict = {};
-// string : number
-splitString.forEach((s) => {
-  if (!dict[s]) return (dict[s] = 1);
+function solveQ(encypted: string[]) {
+  const dict = {};
+  // string : number
+  encypted.forEach((s) => {
+    if (!dict[s]) return (dict[s] = 1);
 
-  dict[s] = dict[s] + 1;
-});
+    dict[s] = dict[s] + 1;
+  });
 
-const result = Object.entries(dict)
-  .map(([key, value]) => `${key}${value}`)
-  .join("");
-console.log(result);
+  return Object.entries(dict)
+    .map(([key, value]) => `${key}${value}`)
+    .join("");
+}
+console.log(solveQ(splitString));
